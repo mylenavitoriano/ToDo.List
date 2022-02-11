@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+html{
+  --purple: #29125E;
+  --blue: #00A6CB;
+  --blue-black: #00738C;
+  --white: #FFF;
+  --gray: #B1B1B1;
+
+  --purple-light: linear-gradient(195.96deg, #231838 -122.01%, #231838 -8.36%, #231838 98.4%);
+
+}
+
+body{
+  display: flex;
+  height: 100vh; 
+  background: var(--backgorund);
+}
+
+body{
+  font-size: clamp(14px, 1rem, 2vw);
+}
+
+.content{
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+.content header{
+  width: 80%;
+  margin: 1.9rem auto 0 auto;
+}
+
+.content header img{
+  width: 9.4rem;
+}

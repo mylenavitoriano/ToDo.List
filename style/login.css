@@ -1,0 +1,111 @@
+
+
+.content{
+  display : grid ;
+  grid-template-columns: 55% 45% ;
+  grid-template-rows: 6rem 1fr ;
+  
+  grid-template-areas: 
+  'header header'
+  'left right';
+}
+
+header{
+  grid-area: header;
+}
+
+#bg{
+  grid-area: left ;
+  background: url("../images/ilustration.svg") no-repeat top/contain;
+  background-position-x: -6rem ; /*mexe na posição do elemento no eixo x*/
+  background-position-y: -1rem ; 
+}
+
+main{
+  grid-area: right ;
+  display: flex ;
+  align-items: center;
+  margin-top: -6rem;
+}
+
+main .container{
+  width: min(21.8rem 100%);
+}
+
+.container section h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 600 1.75rem 'Poppins', sans-serif;
+  color: var(--purple);
+  margin-bottom: 2.4rem;
+}
+
+.container section h2 img{
+  margin-left: .5rem;
+}
+
+input, button{
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  border-radius: .6rem;
+  height: 3.125rem;
+}
+
+
+input{
+  border: 1px solid var(--blue-black);
+  padding: 0 1rem;
+  margin-bottom: 1.8rem;
+  font-size: clamp(14px,  1rem, 2vw);
+  font-weight: 400;
+}
+
+
+button{
+  font-size: clamp(14px, 1.25rem, 2vw);
+  font-weight: 500;
+  line-height: 0;
+  margin-top: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--blue);
+  color: var(--white);
+
+  transition: filter .2s;
+
+  cursor: pointer;
+}
+
+button:hover{
+  filter: brightness(1.2);  
+}
+
+button > img{
+  margin-right: .6rem;
+  width: 1.25rem;
+}
+
+.ball{
+  width: 21.2rem;
+  height: 21.2rem;
+  clip-path: circle(); /*a propriedade clip-path, é usada para cliar formas geometricas*/
+  background: var(--purple-light);
+  position: fixed;
+  opacity: .1;
+}
+
+.ball.top{
+  top:  -46rem;
+  right: -35rem;
+  width: 60rem;
+  height: 60rem;
+}
+
+.ball.botton{
+  bottom: -15rem;
+  right: 5.6rem;
+}

@@ -1,0 +1,114 @@
+.content {
+  max-width: min(112rem, 90%);
+}
+
+#index header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#index header .buttons {
+  display: flex;
+}
+
+#index header .user{
+  display: flex;
+  align-items: center;
+  font: 600 1.2rem 'Poppins', sans-serif;
+  color: var(--purple);
+}
+
+#index header .user img{
+  margin-left: 0.6rem;
+  width: 1.5rem;
+}
+
+main{
+  width: 80%;
+  margin: auto;
+}
+
+#new-tasks{
+  background: #fff;
+  height: 8rem;
+  width: 72%;
+  position: fixed;
+  bottom: 0;
+}
+
+#new-tasks .form{
+  position: fixed;
+  bottom: 2rem;
+  width: 72%;
+  z-index: 100;
+  margin: auto;
+}
+
+#new-tasks form {
+  border: 1px solid var(--blue-black);
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: .5rem 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+#new-tasks form #task{
+  width: 100%;
+  font: 400 1.25rem 'Poppins', sans-serif;
+  outline: none; /*borda ao clicar no input */
+}
+
+#new-tasks form button{
+  padding: 0.25rem;
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 10px;
+}
+
+#new-tasks form button img{
+  display: flex;
+  align-items: center;
+}
+
+.task-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background: var(--light-blue);
+  border-radius: 0px 8px 8px 8px;
+  margin-bottom: 1.25rem;
+}
+
+.task-wrapper .task-content .checkbox-task {
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 5px;
+  margin-right: 1.5rem;
+}
+
+.task-wrapper .task-text{
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(0, 115, 140, 0.50);
+  border-radius: 5px;
+  margin-right: .8rem;
+  width: 100%;
+  font: 400 1.25rem 'Poppins', sans-serif;
+  color: var(--purple);
+}
+
+.task-wrapper.finished .task-text{
+  color: var(--gray);
+  text-decoration: line-through;
+}
+
+.task-wrapper .delete-task button{
+  background: transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+}
