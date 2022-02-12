@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 #index header .buttons {
@@ -32,7 +33,7 @@ main{
 
 #new-tasks{
   background: #fff;
-  height: 8rem;
+  height: 6rem;
   width: 72%;
   position: fixed;
   bottom: 0;
@@ -46,7 +47,7 @@ main{
   margin: auto;
 }
 
-#new-tasks form {
+#new-tasks .inputs {
   border: 1px solid var(--blue-black);
   box-sizing: border-box;
   border-radius: 10px;
@@ -55,25 +56,32 @@ main{
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
-#new-tasks form #task{
+#new-tasks #btn_send{
+  cursor: pointer;
+}
+
+#new-tasks .inputs #task{
   width: 100%;
   font: 400 1.25rem 'Poppins', sans-serif;
   outline: none; /*borda ao clicar no input */
 }
 
-#new-tasks form button{
+#new-tasks .inputs button{
   padding: 0.25rem;
   background: var(--blue);
   color: var(--white);
   border-radius: 10px;
 }
 
-#new-tasks form button img{
+#new-tasks .inputs button img{
   display: flex;
   align-items: center;
+}
+
+.tasks{
+  margin-bottom: 10rem;
 }
 
 .task-wrapper {

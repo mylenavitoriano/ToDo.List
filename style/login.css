@@ -38,11 +38,20 @@ main .container{
   align-items: center;
   font: 600 1.75rem 'Poppins', sans-serif;
   color: var(--purple);
-  margin-bottom: 2.4rem;
+  margin-bottom: 1rem;
 }
 
 .container section h2 img{
   margin-left: .5rem;
+}
+
+.container section .erro{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #f00;
+  margin-bottom: 2.4rem;
 }
 
 input, button{
