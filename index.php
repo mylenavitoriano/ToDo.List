@@ -9,13 +9,10 @@ $tarefas = buscar_tarefas_user($id_usuario);
 
 function verifica_finish($x, $elemento){
   if($x == 1 && $elemento == "class"){
-    //echo "oioioi";
     echo "finished";
   }else if($x == 1 && $elemento == "check"){
-    //echo "aaaa";
     echo "checked";
   }else{
-    //echo "cccc";
     echo "";
   }
 }
