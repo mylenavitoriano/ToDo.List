@@ -1,4 +1,11 @@
-<?php?>
+<?php
+session_start();
+include_once 'sis/functions.php';
+
+if(isset($_SESSION['id'])){
+  header('Location: index.php');
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,20 +37,40 @@
       <div class="container">
         <section id="login">
           <h2>Acesse seu<img src="images/to-do.svg" alt=""></h2>
-          <form action="">
+          <label class="erro"></label>
+          
               <input type="email" id="email" id="email" placeholder="E-mail">
               <input type="password" id="senha" name="senha" placeholder="Senha">
-              <button>
-                  <img src="images/enter.svg" alt="Entrar">
-                  Entrar
-              </button> 
-          </form>
+              <button id="btn_entrar">
+                <img src="images/enter.svg" alt="Entrar">
+                Entrar
+              </button>
+                  
         </section>
       </div>
     </main>
 
-    </div>
+  </div>
     
+  <script src="js/jquery-3.6.0.min.js"></script>
+
+
+  <script>
+    $("#btn_entrar").click(function(){
+      $.post('sis/function_login.php', {
+        email: $("#email").val(),
+        senha: $("#senha").val(),
+        action: 'login'
+      }).done(function(data){
+        if(data == 'true'){
+          window.location.href = 'index.php';
+        }else{
+          $(".erro").html("Usuário ou senha incorretos");
+        }
+      });
+    });
+
+  </script>
 
 </body>
 </html>
