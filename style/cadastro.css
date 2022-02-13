@@ -1,5 +1,5 @@
 .content{
-  display : grid ;
+  display: grid ;
   grid-template-columns: 55% 45% ;
   grid-template-rows: 6rem 1fr ;
   
@@ -39,10 +39,6 @@ main .container{
   margin-bottom: .5rem;
 }
 
-.container section h2 img{
-  margin-left: .5rem;
-}
-
 .container section .erro{
   display: flex;
   justify-content: center;
@@ -62,7 +58,7 @@ input, button{
 input{
   border: 1px solid var(--blue-black);
   padding: 0 1rem;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.2rem;
   font-size: clamp(14px,  1rem, 2vw);
   font-weight: 400;
 }
@@ -87,23 +83,6 @@ button{
 
 button:hover{
   filter: brightness(1.2);  
-}
-
-button > img{
-  margin-right: .6rem;
-  width: 1.25rem;
-}
-
-.create_account{
-  font: 400 1.125rem 'Poppins', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-#create_account{
-  border-bottom: .5px solid var(--blue-black);
 }
 
 .ball{
