@@ -26,6 +26,10 @@
   width: 1.5rem;
 }
 
+#index header .user #exit{
+  cursor: pointer;
+}
+
 main{
   width: 80%;
   margin: auto;
@@ -47,37 +51,55 @@ main{
   margin: auto;
 }
 
-#new-tasks .inputs {
-  border: 1px solid var(--blue-black);
-  box-sizing: border-box;
+#new-tasks .open_modal {
   border-radius: 10px;
   padding: .5rem 1rem;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
-#new-tasks #btn_send{
-  cursor: pointer;
-}
-
-#new-tasks .inputs #task{
-  width: 100%;
-  font: 400 1.25rem 'Poppins', sans-serif;
-  outline: none; /*borda ao clicar no input */
-}
-
-#new-tasks .inputs button{
+#new-tasks .open_modal button{
   padding: 0.25rem;
   background: var(--blue);
   color: var(--white);
   border-radius: 10px;
-}
-
-#new-tasks .inputs button img{
+  font: 400 1.25rem 'Poppins', sans-serif;
   display: flex;
   align-items: center;
+  padding: 0.2rem 1rem;
+  cursor: pointer
+}
+
+#new-tasks .open_modal button img{
+  margin-left: .5rem;
+}
+
+.image_coffee{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image_coffee .text-coffee .p-1,
+.image_coffee .text-coffee .p-2{
+  font: 400 1.8rem 'Poppins', sans-serif;
+  color: var(--purple);
+}
+
+.image_coffee .text-coffee .p-1 span,
+.image_coffee .text-coffee .p-2 span{
+  font: 500 1.8rem 'Poppins', sans-serif;
+  color: var(--purple);
+}
+
+.image_coffee .text-coffee .p-1{
+  text-shadow: 30px 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.image_coffee .text-coffee .p-2{
+  text-shadow: -30px 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .tasks{
@@ -100,18 +122,69 @@ main{
   margin-right: 1.5rem;
 }
 
-.task-wrapper .task-text{
+.task-wrapper .task-info{
   padding: 0.6rem 1rem;
   border: 1px solid rgba(0, 115, 140, 0.50);
   border-radius: 5px;
   margin-right: .8rem;
   width: 100%;
-  font: 400 1.25rem 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: var(--purple);
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
-.task-wrapper.finished .task-text{
-  color: var(--gray);
+.task-text{
+  height: auto;
+}
+
+.task-wrapper .task-info .task-title{
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.task-wrapper.details .task-info .task-description{
+  position: inherit;
+  visibility: visible;
+}
+
+.task-wrapper .task-info .task-description{
+  position: absolute;
+  visibility: hidden;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.task-wrapper .task-info .more-info,
+.task-wrapper .task-info .less-info{
+  background: transparent;
+  cursor: pointer;
+}
+
+.task-wrapper.details .task-info .more-info{
+  visibility: hidden;
+  position: absolute;
+}
+
+.task-wrapper .task-info .more-info{
+  visibility: visible;
+  position: inherit;
+}
+
+.task-wrapper.details .task-info .less-info{
+  visibility: visible;
+  position: inherit;
+}
+
+.task-wrapper .task-info .less-info{
+  visibility: hidden;
+  position: absolute;
+}
+
+.task-wrapper.finished .task-info{
+  color: var(--grey);
   text-decoration: line-through;
 }
 
@@ -119,4 +192,121 @@ main{
   background: transparent;
   width: 1.5rem;
   height: 1.5rem;
+  cursor: pointer;
+}
+
+/*modal*/
+
+.modal-task.active{
+  /* utiliza-se as duas propriedades pois alguns navegadores não suportam alguma das duas */ 
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.modal-task{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+
+  /* criar cor com opacidade quando não é possível usar o opacity */
+  background: rgba(4, 9, 17, .8);
+
+  display: flex;
+
+  /* utiliza-se as duas propriedades pois alguns navegadores não suportam alguma das duas */ 
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal-task .modal{
+  background: #FFF;
+  width: min(36.8rem, 90%);
+  border-radius: .8rem;
+
+  padding: 4rem 5.3rem;
+  margin: auto;
+
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.modal-task .modal h2{
+  color: var(--purple);
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.modal-task .modal p{
+  color: var(--blue-black);
+  margin-bottom: 1.5rem;
+}
+
+
+.modal-task .modal input{
+  font: 400 1rem 'Poppins', sans-serif;
+  border: .125rem solid var(--blue);
+  padding: 0.31rem 1rem;
+  font-weight: 500;
+  outline: none;
+  font-size: clamp(14px, 1rem, 2vw);
+  height: 3.1rem;
+  border-radius: 0.5rem;
+
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.modal-task .modal textarea{
+  resize: none;
+  background: none;
+  font: 400 1rem 'Poppins', sans-serif;
+  padding: 0.5rem 1rem;
+  border: .125rem solid var(--blue);
+  border-radius: 0.5rem;
+  outline: none; /*borda ao clicar no input */
+  width: 100%;
+}
+
+.modal-task .modal textarea::placeholder,
+.modal-task .modal input::placeholder{
+  color: var(--grey);
+  font: 400 1rem 'Poppins', sans-serif;
+}
+
+.modal-task .modal .buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.modal-task .modal .buttons .button{
+
+  font: 500 1.2rem'Poppins', sans-serif;
+  line-height: 0;
+  background: var(--blue);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: filter 0.3s;
+  padding: 0.8rem 2rem;
+  height: 3.12rem;
+  border-radius: 0.5rem;
+}
+
+.modal-task .modal .button.send{
+  background: var(--blue);
+  color: var(--white);
+}
+
+.modal-task .modal .button.grey{
+  margin-right: .8rem;
+  background: var(--grey);
+  color: var(--dark-grey);
 }

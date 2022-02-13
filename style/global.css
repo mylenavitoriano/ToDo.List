@@ -11,8 +11,8 @@ html{
   --blue: #00A6CB;
   --blue-black: #00738C;
   --white: #FFF;
-  --gray: #B1B1B1;
-
+  --grey: #B1B1B1;
+  --black: #000;
   --purple-light: linear-gradient(195.96deg, #231838 -122.01%, #231838 -8.36%, #231838 98.4%);
 
 }
