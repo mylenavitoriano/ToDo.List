@@ -23,7 +23,7 @@ if(isset($_SESSION['id'])){
 
   <div id="login" class="content">
     <header>
-      <a href="/">
+      <a href="#">
         <img src="images/logo.svg" alt="ToDo.List Logo">
       </a>
     </header>
