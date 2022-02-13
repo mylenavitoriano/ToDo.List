@@ -1,6 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 date_default_timezone_set('America/Sao_Paulo');
 
@@ -48,6 +47,17 @@ if(isset($_POST['action'])){
           $dados->update_check_tarefa($_POST['id_tarefa'], $check);
           return 'Concluido';
       }
+      break;
+
+    case 'deletar_tarefa':
+      logado();
+      global $dados;
+      $dados->deletar_tarefa($_POST['id_tarefa']);
+      break;
+
+    case 'logoff':
+      session_destroy();
+      echo "logoff";
       break;
   }
 }

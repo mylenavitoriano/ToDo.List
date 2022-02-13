@@ -1,7 +1,5 @@
 <?php
 
-
-  error_reporting(E_ALL);
   setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
   date_default_timezone_set('America/Sao_Paulo');
 
@@ -40,8 +38,8 @@
     }
 
     public function nova_tarefa($dados){
-      $result = $this->db->prepare("INSERT INTO tarefas (id_user, tarefa) VALUES (?, ?)");
-      $result->bind_param('is', $dados['usuario'], $dados['tarefa']);
+      $result = $this->db->prepare("INSERT INTO tarefas (id_user, titulo, descricao) VALUES (?, ?, ?)");
+      $result->bind_param('iss', $dados['usuario'], $dados['titulo'], $dados['descricao']);
       $result->execute();
 
       return ($result->insert_id);
@@ -68,7 +66,10 @@
       while($dado = $dados->fetch_array(MYSQLI_ASSOC)){
           $data[] = $dado;
       }
-      return $data;
+
+      if(isset($data)){
+        return $data;
+      }
     }
 
     public function check_tarefa($id_tarefa){
@@ -84,6 +85,12 @@
     public function update_check_tarefa($id_tarefa, $concluido){
       $result = $this->db->prepare("UPDATE tarefas SET concluida=? WHERE id=?");
       $result->bind_param('ii', $concluido, $id_tarefa);
+      $result->execute();
+    }
+
+    public function deletar_tarefa($id_tarefa){
+      $result = $this->db->prepare("DELETE FROM tarefas WHERE id=?");
+      $result->bind_param('i', $id_tarefa);
       $result->execute();
     }
   }
