@@ -24,6 +24,21 @@ if(isset($_POST['action'])){
   $action = $_POST['action'];
 
   switch ($action){
+    case 'cadastro':
+      global $dados;
+      $existe = $dados->verificar_email($_POST['email']);
+      if($existe){
+        echo "false";
+      }else{
+        $id_inserido = $dados->criar_conta($_POST);
+        $return = $dados->informacoes_usuario($id_inserido);
+        $_SESSION['id'] = $return['id'];
+        $_SESSION['nome'] = $return['nome'];
+        $_SESSION['email'] = $return['email'];
+        echo "true";
+      }
+      break;
+
     case 'nova_tarefa':
       logado();
       global $dados;

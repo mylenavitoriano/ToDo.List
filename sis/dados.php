@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 
   setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
   date_default_timezone_set('America/Sao_Paulo');
@@ -31,6 +32,42 @@
       if($dados->num_rows > 0){
           $data = $dados->fetch_array(MYSQLI_ASSOC);
           
+          return $data;
+      }else{
+          return false;
+      }
+    }
+
+    public function verificar_email($email){
+      $result = $this->db->prepare("SELECT * FROM user WHERE email=?");
+      $result->bind_param('s', $email);
+      $result->execute();
+      $dados = $result->get_result();
+      
+      
+      if($dados->num_rows > 0){
+          return true;
+      }else{
+          return false;
+      }
+    }
+
+    public function criar_conta($dados){
+      $result = $this->db->prepare("INSERT INTO user (nome, email, senha) VALUES (?, ?, ?)");
+      $result->bind_param('sss', $dados['nome'], $dados['email'], $dados['senha']);
+      $result->execute();
+
+      return ($result->insert_id);
+    }
+
+    public function informacoes_usuario($id){
+      $result = $this->db->prepare("SELECT * FROM user WHERE id=?");
+      $result->bind_param('i', $id);
+      $result->execute();
+      $dados = $result->get_result();
+
+      if($dados->num_rows > 0){
+          $data = $dados->fetch_array(MYSQLI_ASSOC);
           return $data;
       }else{
           return false;
@@ -94,5 +131,3 @@
       $result->execute();
     }
   }
-
-?>
