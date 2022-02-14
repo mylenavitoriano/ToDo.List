@@ -18,6 +18,12 @@ if(isset($_SESSION['id'])){
   <link rel="stylesheet" href="style/login.css">
   <link rel="stylesheet" href="style/global.css">
 
+  
+  <!--Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
@@ -45,7 +51,9 @@ if(isset($_SESSION['id'])){
                 <img src="images/enter.svg" alt="Entrar">
                 Entrar
               </button>
-                  
+              <div class="create_account">
+                <a href="cadastro.php" id="create_account">Quero me cadastrar</a>
+              </div>
         </section>
       </div>
     </main>
